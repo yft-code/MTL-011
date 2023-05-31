@@ -8,7 +8,7 @@
                     :key="solutionItem.type"
                     class="solution-type-content"
                     :class="solutionItem.type === curSolutionType ? 'cur-solution-type' : ''"
-                    @click="changecurSolutionType(solutionItem.type)"
+                    @click="changeCurSolutionType(solutionItem.type)"
                 >
                     <span>{{solutionItem.type}}</span>
                 </div>
@@ -42,7 +42,6 @@
 </template>
 
 <script>
-
     export default {
         components: {
         },
@@ -107,14 +106,6 @@
                 markIcon: require('@/assets/img/DecorationJuju.png')
             }
         },
-        props:{
-            
-        },
-        created(){
-        },
-        mounted(){
-            
-        },
         computed:{
             curSolutionList() {
                 let res = this.solutionData.filter(item => item.type === this.curSolutionType);
@@ -125,13 +116,11 @@
                 return res.length > 0 ? res[0].des : '';
             }
         },
-        watch:{
-        },
         methods:{
-            // 切换当前方案
-            changecurSolutionType(type) {
+            // 鼠标点击时切换当前方案
+            changeCurSolutionType(type) {
                 this.curSolutionType = type;
-            },
+            }
         },
     }
 </script>
@@ -140,7 +129,7 @@
     .solution-div {
         width: 100%;
         position: relative;
-        background: url('../../assets/img/solution_background.png') no-repeat;
+        background: url('~@/assets/img/solution_background.png') no-repeat;
     }
     .solution-contianer {
         margin: 80px 360px 0 360px;
@@ -202,7 +191,7 @@
         display: flex;
         align-items: flex-start;
         position: relative;
-        background: url('../../assets/img/solution_background.png') no-repeat;
+        background: url('~@/assets/img/solution_background.png') no-repeat;
         background-size: 100% 100%;
     }
     .solution-item-content:hover {
@@ -246,7 +235,4 @@
     .get-detail:hover {
         color: #156EEF;
     }
-</style>
-
-<style>
 </style>

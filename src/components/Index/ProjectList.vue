@@ -13,7 +13,7 @@
                 class="project-item"
             >
                 <img :src="item.icon">
-                <div style="margin-top: 12px">{{item.label}}</div>
+                <div class="img-title">{{item.label}}</div>
             </vue-marquee-slide>
             <div class="right-opacity"></div>
         </vue-marquee>
@@ -214,80 +214,41 @@
                     }
                 ]
             }
-        },
-        props: {
-        },
-        create(){
-        },
-        mounted() {
-        },
-        computed:{
-        },
-        watch:{
-        },
-        methods: {
-        },
+        }
     }
 </script>
 <style scoped>
-.project-list {
-    width: 100%;
-    padding-top: 80px;
-    background: #fff;
-}
-.project-list-title {
-    text-align: center;
-    color: #333333;
-    font-size: 32px;
-}
-.project-list-content {
-    position: relative;
-    margin-top: 40px;
-    height: 158px !important;
-    padding: 38px 50px 0 50px;
-    overflow: hidden;
-    white-space: nowrap;
-    background: rgb(17, 33, 128, 0.8);
-    text-align: center;
-}
-/* .left-opacity {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 50px;
-    height: 100%;
-    background: linear-gradient(
-        to left,
-        rgba(21, 110, 239, 0) 0%,
-        rgba(21, 110, 239, 0.3) 30%,
-        rgba(21, 110, 239, 0.7) 60%,
-        rgba(21, 110, 239, 1) 100%);
-    z-index: 1;
-}
-.right-opacity {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50px;
-    height: 100%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 30%,
-        rgba(255, 255, 255, 0.7) 60%,
-        rgba(255, 255, 255, 1) 100%);
-    z-index: 1;
-} */
-.project-item {
-    padding-left: 40px;
-    text-align: center;
-}
-.project-item img {
-    height: 78px;
-    width: 78px;
-    border-radius: 40px;
-    overflow: hidden;
-}
-</style>
-<style>
+    .img-title{
+        margin-top: 12px
+    }
+    .project-list {
+        width: 100%;
+        padding-top: 80px;
+        background: #fff;
+    }
+    .project-list-title {
+        text-align: center;
+        color: #333333;
+        font-size: 32px;
+    }
+    .project-list-content {
+        position: relative;
+        margin-top: 40px;
+        height: 158px !important;
+        padding: 38px 50px 0 50px;
+        overflow: hidden;
+        white-space: nowrap;
+        background: rgb(17, 33, 128, 0.8);
+        text-align: center;
+    }
+    .project-item {
+        padding-left: 40px;
+        text-align: center;
+    }
+    .project-item img {
+        height: 78px;
+        width: 78px;
+        border-radius: 40px;
+        overflow: hidden;
+    }
 </style>

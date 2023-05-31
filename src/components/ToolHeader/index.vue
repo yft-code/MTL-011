@@ -37,7 +37,6 @@
                     <div 
                         v-else
                         class="login-div"
-                        @click="login"
                     ></div>
                 </div>
             </div>
@@ -129,9 +128,6 @@
             showDropdownMenu() {
                 let dropdown = document.getElementById('dropdown');
                 dropdown.click();
-            },
-
-            login() {   
             },
 
             jumpToWorkstation() {

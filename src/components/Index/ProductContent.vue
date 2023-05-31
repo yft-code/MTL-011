@@ -27,7 +27,6 @@
 </template>
 
 <script>
-
     export default {
         components: {
         },
@@ -35,14 +34,6 @@
             return {
                 curProductType: ''
             }
-        },
-        props:{
-            
-        },
-        created(){
-        },
-        mounted(){
-            
         },
         computed:{
             productInfo() {
@@ -55,8 +46,6 @@
                 return res.length > 0 ? res[0].list : [];
             }
         },
-        watch:{
-        },
         methods:{
             changeCurProductType(type) {
                 this.curProductType = type;
@@ -64,13 +53,13 @@
         },
     }
 </script>
-    
+  
 <style scoped>
     .product-div {
-        padding-top: 80px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-top: 80px;
         background: linear-gradient(180deg, #F4F8FF 0%, rgba(255, 255, 255, 0) 100%);
     }
     .product-title {

@@ -146,7 +146,7 @@
         },
     }
 </script>
-<style lang="less" scoped>
+<style scoped>
     #testProjectSelect .el-input__inner {
         border-color: transparent;
     }
