@@ -64,7 +64,7 @@
     }
 </script>
     
-<style scoped>
+<style  lang="less" scoped>
     .banner-div {
         width: 100%;
         height: 642px;

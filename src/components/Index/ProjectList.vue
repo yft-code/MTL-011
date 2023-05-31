@@ -22,8 +22,6 @@
 
 <script>
     export default {
-        components: {
-        },
         data() {
             return {
                 projectListData: [
@@ -217,7 +215,8 @@
         }
     }
 </script>
-<style scoped>
+
+<style lang="less" scoped>
     .img-title{
         margin-top: 12px
     }

@@ -125,7 +125,7 @@
     }
 </script>
     
-<style scoped>
+<style lang="less" scoped>
     .solution-div {
         width: 100%;
         position: relative;

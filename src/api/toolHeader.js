@@ -7,6 +7,6 @@ export const getUserAuth = (callback) => get('/service/get_user_auth/',{},callba
 // 获取是否是接口人
 export const judgeContact = (callback) => get('/service/get_reminder/',{},callback)
 // 获取项目组信息
-export const getExpertGroup = (callback,messageList) => post('/expertCompatibility/get_expert_group/',{},callback,messageList)
+export const getExpertGroup = (callback) => post('/expertCompatibility/get_expert_group/',{},callback)
 
 export const getAuthByTable = (params,callback) => post('/compatibilityTest/get_auth_by_table/',params,callback)

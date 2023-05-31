@@ -100,11 +100,9 @@
                         this.$store.commit("setProjectCode", this.currentProjectCode);
                         this.$publicJS.judgeAdmin(this);
                     }
-                },
-                { operation: "获取项目组数据", failed: true }
+                }
                 )
             },
-
             //左上角切换、无权限提示
             notifyError(msg) {
                 this.$notify.error({

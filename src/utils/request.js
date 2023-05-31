@@ -2,18 +2,13 @@ import axios from 'axios'
 import api from '../../api.config'
 import qs from 'qs'
 import {Message} from 'element-ui'
-
-// 这里没有环境切换所以项目发布时添加相应的接口域名即可
 axios.defaults.baseURL = api.baseURL 
 // 设置请求超时时间，毫秒
 axios.defaults.timeout = 960000
-
 // 设置post请求头
 // axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 // 请求拦截
 axios.interceptors.request.use(config => {
-	// 在发送请求之前做些什么 验证token之类的
-	// config.headers.token
 	return config
 }, err => {
 	// 对请求错误做些什么
@@ -63,7 +58,7 @@ export function get(url, params,callback) {
  * @param {String} url [请求的url地址] 
  * @param {Object} params [请求时携带的参数] 
  */
-export function post(url, params,callback,messageList={},requestType = '') {
+export function post(url, params,callback,requestType = '') {
 	return new Promise((resolve, reject) => {
 		let response = {};
 		axios.post(url, requestType === 'formData' ? params : qs.stringify(params),requestType === 'formData' ? {
@@ -86,32 +81,6 @@ export function post(url, params,callback,messageList={},requestType = '') {
 			.catch(err => {
 				reject(err.response)
 			}).finally(()=>{
-				if (JSON.stringify(messageList) !== '{}') {
-					codePostMessage(response, messageList);
-				}
 			})
 	})
-}
-// 公共的提示信息
-function codePostMessage(response, messageList) {
-    if (response.code == "200") {
-        //操作成功时
-        if (messageList.success) {
-            //需要成功提示
-            if (messageList.successText != undefined) {
-                //成功定制了特殊提示
-                Message.success(messageList.successText);
-            } else {
-                //通用成功提示
-                Message.success(messageList.operation + "成功！");
-            }
-        }
-    } else if (response.code == "Unlogin") {
-        console.log("cookie失效");
-    } else {
-        //操作失败时
-        if (messageList.failed) {
-            Message.error(response.msg);
-        }
-    }
 }

@@ -54,7 +54,7 @@
     }
 </script>
   
-<style scoped>
+<style lang="less" scoped>
     .product-div {
         display: flex;
         flex-direction: column;
@@ -130,7 +130,4 @@
         color: #999999;
         padding: 0 30px 30px 30px;
     }
-</style>
-
-<style>
 </style>

@@ -94,7 +94,7 @@
             jumpPage(url) {
                 window.location.href = url;
             }
-        },
+        }
     }
 </script>
 <style lang="less" scoped>

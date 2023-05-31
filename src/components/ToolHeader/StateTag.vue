@@ -56,5 +56,3 @@
         color: #fff;
     }
 </style>
-<style>
-</style>
