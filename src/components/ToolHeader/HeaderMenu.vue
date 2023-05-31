@@ -29,6 +29,7 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     export default {
         data() {
             return {
@@ -46,26 +47,9 @@
         mounted() {
         },
         computed:{
-            isHover() {
-                return this.$store.state.isHover;
-            },
-            isShowSubMenu() {
-                return this.$store.state.isShowSubMenu;
-            },
-            subMenuInfo() {
-                return this.$store.state.subMenuInfo;
-            },
+            ...mapState(["isHover", "isShowSubMenu","subMenuInfo","isTester","isAdmin","isContact"]),
             isWorkstation() {
                 return this.$route.path === '/mtl_test_platform/page/workstation';
-            },
-            isTester () {
-                return this.$store.state.isTester
-            },
-            isAdmin() {
-                return this.$store.state.isAdmin
-            },
-            isContact(){
-                return this.$store.state.isContact
             }
         },
         watch:{

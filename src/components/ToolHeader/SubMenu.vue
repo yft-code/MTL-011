@@ -1,5 +1,5 @@
 <template>
-    <div v-if="subMenuInfo[subMenuInfo.currentType]" class="sub-menu handle-sub-menu" >
+    <div v-if="subMenuInfo[subMenuInfo.currentType]" class="sub-menu handle-sub-menu">
         <div class="sub-menu-content">
             <div class="menu-type-div">
                 <div
@@ -82,21 +82,22 @@
                     }
                 })
             },
+
             // 切换当前服务或者产品类型
             changeCurItem(type) {
                 this.menuData[this.subMenuInfo.currentType].forEach(item => {
                     // 给每个服务或产品添加isCurrentType属性
                     this.$set(item, 'isCurrentType', item.type === type ? true : false);
-                    // console.log(this.menuData[this.subMenuInfo.currentType])
                 });
             },
+
             jumpPage(url) {
                 window.location.href = url;
             }
         },
     }
 </script>
-<style scoped>
+<style lang="less" scoped>
     .sub-menu {
         position: fixed;
         top: 64px;
@@ -163,6 +164,4 @@
     .list-item:hover .list-item-des {
         color: rgba(21, 110, 239, 0.8);;
     }
-</style>
-<style>
 </style>

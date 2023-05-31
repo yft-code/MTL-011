@@ -1,18 +1,16 @@
 <template>
     <div
-        :class="state === 'hot' ? 'hot-state-tag' : state === 'new' ? 'new-state-tag' : ''"
+        :class="state === 'hot' ? 'hot-state-tag' : 
+        state === 'new' ? 'new-state-tag' : ''"
     >
         {{state === 'hot' ? 'HOT' : state === 'new' ? 'NEW' : ''}}
     </div>
 </template>
 
 <script>
-    import $ from 'jquery'
-
     export default {
         data() {
-            return {
-                
+            return { 
             }
         },
         props: {

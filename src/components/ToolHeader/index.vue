@@ -4,33 +4,27 @@
         <div class="header-content">
             <!-- MTL logo -->
             <div @click="jumpToIndex" style="cursor: pointer;">
-                <img style="height:40px;vertical-align:middle; margin-left: 40px; text-align: center;" :src="isDarkStyle ? 'http://mtl.leihuo.netease.com:8000/site_media/ttd_logo_dark.png' : 'http://mtl.leihuo.netease.com:8000/site_media/ttd_logo_light.png'" />
+                <img
+                class="img" 
+                :src="isDarkStyle ? 
+                     'http://mtl.leihuo.netease.com:8000/site_media/ttd_logo_dark.png' : 
+                     'http://mtl.leihuo.netease.com:8000/site_media/ttd_logo_light.png'" 
+                />
             </div>
             <!-- 导航栏 -->
             <header-menu :is-dark-style="isDarkStyle" />
             <!-- 工具列 -->
             <div class="tool-bar">
-                <!-- <div class="tool-item">下载</div>
-                <div class="tool-item" @click="jumpToDocumentCenter">文档</div> -->
-                <!-- <div class="tool-item" @click="jumpToWorkTime">工时</div> -->
-                <!-- <div 
-                    v-if="$route.path !== '/mtl_test_platform/page/workstation'"
-                    class="tool-item" 
-                    @click="jumpToWorkstation"
-                    >
-                    工作站
-                </div> -->
-                <div class="tool-item" v-if="path != '/mtl_test_platform/page/index'" >
+                <div v-if="path != '/mtl_test_platform/page/index'" class="tool-item">
                     <project-select class="project-select-component" />
                 </div>
                 <!-- 登录用户名 -->
                 <div @click="showDropdownMenu">
-                    <el-dropdown 
+                    <el-dropdown
+                        v-if="userInfo" 
                         class="login-user"
-                        v-if="userInfo"
                         trigger="click" 
                         @command="removeCookieUser" 
-                        style="cursor: pointer;"
                     >
                         <span class="el-dropdown-link" id="dropdown">
                             {{userInfo}}
@@ -57,7 +51,7 @@
     import $ from 'jquery'
     import headerMenu from '@/components/ToolHeader/HeaderMenu.vue'
     import subMenu from '@/components/ToolHeader/SubMenu.vue'
-    import ProjectSelect from "./ProjectSelect.vue"
+    import ProjectSelect from "@/components/ToolHeader/ProjectSelect.vue"
     import waterMark from 'waterMark'
     export default {
         components: {
@@ -73,11 +67,10 @@
         },
         computed:{
             path(){
-                // console.log(this.$route.path)
                 return this.$route.path;
             },
             userInfo () {
-                return this.$store.getters.getUserEmail.substring(0, this.$store.getters.getUserEmail.indexOf('@'));
+                return this.$store.state.currentUserEmail.substring(0, this.$store.state.currentUserEmail.indexOf('@'));
             },
             isHover () {
                 return this.$store.state.isHover;
@@ -102,12 +95,12 @@
             this.dealWithScroll();
         },
         beforeDestroy() {
-            $('.el-main').scroll(()=>{return false});
+            $('.el-main').scroll(() => {return false});
         },
         methods: {
             // 监听滚动事件
             dealWithScroll() {
-                    $('.el-main').scroll(()=>{
+                    $('.el-main').scroll(() => {
                          let isIndex = this.$route.path === '/mtl_test_platform/page/index';
                         if (isIndex) {
                             if ($('.el-main').scrollTop() > 100) {
@@ -122,35 +115,40 @@
             jumpToIndex() {
                 this.$router.push({ path: '/mtl_test_platform/page/index' });
             },
-            removeCookieUser(){
+
+            removeCookieUser() {
                 //登出清cookie
                 let exp = new Date();
                 exp.setTime(exp.getTime() - 1);
                 let name='QAWEB_SESS';
-                document.cookie = name + "=null" +  ";expires=" + exp.toGMTString()+";path=/;domain=.leihuo.netease.com";
-                var url=window.location.href;
+                document.cookie=`${name}=null;expires=${exp.toGMTString()};path=/;domain=.leihuo.netease.com}`
+                let url=window.location.href;
                 window.location.href=url;
             },
+
             showDropdownMenu() {
                 let dropdown = document.getElementById('dropdown');
                 dropdown.click();
             },
-            login() {
-                
+
+            login() {   
             },
+
             jumpToWorkstation() {
                 this.$router.push({ path: '/mtl_test_platform/page/workstation/myMission' });
             },
+
             jumpToWorkTime(){
                 this.$router.push({ path: '/mtl_test_platform/page/workTimeCounter' });
             },
+
             jumpToDocumentCenter() {
                 this.$router.push({ path: '/mtl_test_platform/page/documentCenter' });
             },
 		},
     }
 </script>
-<style scoped>
+<style lang="less" scoped>
     .tool-header{
         margin: 0 auto;
         position: absolute;
@@ -166,6 +164,12 @@
     .dark-style {
         background: #fff;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
+    }
+    .img{
+        height:40px;
+        vertical-align:middle; 
+        margin-left: 40px; 
+        text-align: center;
     }
     .header-content {
         position: relative;
@@ -189,15 +193,7 @@
         margin: 12px 40px;
         height: 40px;
         width: 164px;
-        /*
-        background-image: url('../../assets/img/ttd_logo_light.png');
-        */
     }
-    /*
-    .dark-style .logo-div {
-        background-image: url('../../assets/img/ttd_logo_dark.png');
-    }
-    */
     .logo-img {
         height: 40px;
         width: 126px;
@@ -224,29 +220,22 @@
     .login-user {
         padding: 20px 50px;
         color: #fff;
+        cursor: pointer;
     }
     .dark-style .login-user {
         color: #333333;
     }
     .login-div {
-        background-image: url('../../assets/img/login.png');
+        background-image: url('~@/assets/img/login.png');
         height: 25px;
         width: 25px;
         cursor: pointer;
     }
     .dark-style .login-div {
-        background-image: url('../../assets/img/login_dark.png');
+        background-image: url('~@/assets/img/login_dark.png');
     }
-        .project-select-component {
+    .project-select-component {
         display: inline-block;
         margin-right: 2rem;
     }
-</style>
-<style>
-/* .login-user .el-dropdown {
-    color: #fff;
-}
-.login-user .el-dropdown:hover {
-    color: #aaa;
-} */
 </style>

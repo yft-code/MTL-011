@@ -35,8 +35,7 @@
 </template>
 
 <script>
-    import $ from 'jquery'
-    import toolHeader from '@/components/ToolHeader/ToolHeader.vue'
+    import toolHeader from '@/components/ToolHeader/index.vue'
     export default {
         data() {
             return {
