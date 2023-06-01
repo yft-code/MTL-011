@@ -1,14 +1,12 @@
 <template>
-    <div class="tool-header" :class="isDarkStyle ? 'dark-style' : ''">
+    <div class="tool-header" :class=" isDarkStyle ? 'dark-style' : ''">
         <water-mark v-if="userInfo" :input-text="userInfo"></water-mark>
         <div class="header-content">
             <!-- MTL logo -->
             <div @click="jumpToIndex" style="cursor: pointer;">
                 <img
-                class="img" 
-                :src="isDarkStyle ? 
-                     'http://mtl.leihuo.netease.com:8000/site_media/ttd_logo_dark.png' : 
-                     'http://mtl.leihuo.netease.com:8000/site_media/ttd_logo_light.png'" 
+                    class="img" 
+                    :src="isDarkStyle ? urlDark: urlLight" 
                 />
             </div>
             <!-- 导航栏 -->
@@ -27,7 +25,7 @@
                         @command="removeCookieUser" 
                     >
                         <span class="el-dropdown-link" id="dropdown">
-                            {{userInfo}}
+                            {{ userInfo }}
                             <i class="el-icon-caret-bottom"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
@@ -61,6 +59,8 @@
         },
         data() {    
 			return {
+                urlDark:'http://mtl.leihuo.netease.com:8000/site_media/ttd_logo_dark.png',
+                urlLight:'http://mtl.leihuo.netease.com:8000/site_media/ttd_logo_light.png',
                 isShowBackground: false,
 			}
         },
@@ -94,35 +94,36 @@
             this.dealWithScroll();
         },
         beforeDestroy() {
-            $('.el-main').scroll(() => {return false});
+            $('.el-main').scroll(() => { return false });
         },
         methods: {
             // 监听滚动事件
             dealWithScroll() {
-                    $('.el-main').scroll(() => {
-                         let isIndex = this.$route.path === '/mtl_test_platform/page/index';
-                        if (isIndex) {
-                            if ($('.el-main').scrollTop() > 100) {
-                                this.isShowBackground = true;
-                            } else {
-                                this.isShowBackground = false;
-                            }
+                $('.el-main').scroll(() => {
+                    let isIndex = this.$route.path === '/mtl_test_platform/page/index';
+                    if (isIndex) {
+                        if ($('.el-main').scrollTop() > 100) {
+                            this.isShowBackground = true;
+                        } else {
+                            this.isShowBackground = false;
                         }
-                    })
+                    }
+                })
             },
+
             // 跳转到首页
             jumpToIndex() {
                 this.$router.push({ path: '/mtl_test_platform/page/index' });
             },
 
+            //登出清cookie
             removeCookieUser() {
-                //登出清cookie
                 let exp = new Date();
                 exp.setTime(exp.getTime() - 1);
-                let name='QAWEB_SESS';
-                document.cookie=`${name}=null;expires=${exp.toGMTString()};path=/;domain=.leihuo.netease.com}`
-                let url=window.location.href;
-                window.location.href=url;
+                let name = 'QAWEB_SESS';
+                document.cookie=`${name}=null;expires=${exp.toGMTString()};path=/;domain=.leihuo.netease.com}`;
+                let url = window.location.href;
+                window.location.href = url;
             },
 
             showDropdownMenu() {
@@ -144,6 +145,7 @@
 		},
     }
 </script>
+
 <style lang="less" scoped>
     .tool-header{
         margin: 0 auto;

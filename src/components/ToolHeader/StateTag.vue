@@ -3,34 +3,20 @@
         :class="state === 'hot' ? 'hot-state-tag' : 
         state === 'new' ? 'new-state-tag' : ''"
     >
-        {{state === 'hot' ? 'HOT' : state === 'new' ? 'NEW' : ''}}
+        {{ state === 'hot' ? 'HOT' : state === 'new' ? 'NEW' : '' }}
     </div>
 </template>
 
 <script>
     export default {
-        data() {
-            return { 
-            }
-        },
         props: {
             state: {
                 type: String
             }
-        },
-        create(){
-        },
-        mounted() {
-        },
-        computed:{
-        },
-        watch:{
-        },
-        methods: {
-        },
+        }
     }
 </script>
-<style scoped>
+<style lang="less" scoped>
     .hot-state-tag {
         height: 14px;
         width: 30px;

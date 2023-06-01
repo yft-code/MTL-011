@@ -10,10 +10,10 @@
                     :class="solutionItem.type === curSolutionType ? 'cur-solution-type' : ''"
                     @click="changeCurSolutionType(solutionItem.type)"
                 >
-                    <span>{{solutionItem.type}}</span>
+                    <span>{{ solutionItem.type }}</span>
                 </div>
             </div>
-            <div class="solution-des">{{curSolutionDes}}</div>
+            <div class="solution-des">{{ curSolutionDes }}</div>
             <div class="solution-item-container">
                 <div
                     v-for="listItem in curSolutionList"
@@ -23,8 +23,8 @@
                     <div class="solution-item-background"></div>
                     <img class="solution-img" :src="solutionImg" >
                     <div>
-                        <div class="solution-item-title">{{listItem.title}}</div>
-                        <div class="solution-item-des">{{listItem.des}}</div>
+                        <div class="solution-item-title">{{ listItem.title }}</div>
+                        <div class="solution-item-des">{{ listItem.des }}</div>
                         <a 
                             :href="listItem.url" 
                             target="_blank" 
@@ -43,8 +43,6 @@
 
 <script>
     export default {
-        components: {
-        },
         data() {
             return {
                 curSolutionType: '通用解决方案',

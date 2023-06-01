@@ -9,7 +9,7 @@
                     :class="typeItem.isCurrentType ? 'cur-menu-type-item' : ''"
                     @mouseenter="changeCurItem(typeItem.type)"
                 >
-                    <span>{{typeItem.type}}</span>
+                    <span>{{ typeItem.type }}</span>
                 </div>
             </div>
             <div class="list-content">
@@ -25,7 +25,7 @@
                             <!-- 显示每一项产品或服务的状态 -->
                             <state-tag :state="listItem.state" />
                         </div>
-                        <div class="list-item-des">{{listItem.des}}</div>
+                        <div class="list-item-des">{{ listItem.des }}</div>
                     </div>
                 </div>
             </div>
@@ -43,10 +43,6 @@
         },
         components: {
             stateTag
-        },
-        props: {
-        },
-        create(){
         },
         mounted() {
             this.handleSubMenuVisible();
@@ -71,7 +67,7 @@
         methods: {
             // 处理子菜单显示状态
             handleSubMenuVisible() {
-                document.onmousemove = ((e)=> {
+                document.onmousemove = ((e) => {
                     if ($(e.target).closest(".handle-sub-menu").length == 0) {
                         let subMenuInfo = {
                             product: false,
@@ -162,6 +158,6 @@
         color: #156EEF;
     }
     .list-item:hover .list-item-des {
-        color: rgba(21, 110, 239, 0.8);;
+        color: rgba(21, 110, 239, 0.8);
     }
 </style>

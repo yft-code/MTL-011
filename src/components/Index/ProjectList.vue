@@ -8,12 +8,12 @@
         >
             <div class="left-opacity"></div>
             <vue-marquee-slide
-                v-for="(item, index) in projectListData"
-                :key="index"
+                v-for="item in projectListData"
+                :key="item.id"
                 class="project-item"
             >
                 <img :src="item.icon">
-                <div class="img-title">{{item.label}}</div>
+                <div class="img-title">{{ item.label }}</div>
             </vue-marquee-slide>
             <div class="right-opacity"></div>
         </vue-marquee>
@@ -24,6 +24,7 @@
     export default {
         data() {
             return {
+                // 假数据需要后端获取
                 projectListData: [
                     {
                         "label": "仓颉",

@@ -1,6 +1,8 @@
 let state = {
-    service: '',    // 测试类别
-    currentUserEmail: '',   // 用户
+    //测试类别
+    service: '',
+    //用户    
+    currentUserEmail: '',  
     curId: '',
     compatibility_editType: '',
     performance_editType: '',
@@ -8,10 +10,13 @@ let state = {
     weaknet_editType: '',
     protocol_editType: '',
     preliminary_editType: '',
-    pageIsLoading: false,//存储是否 处于加载中 这个数据，实现加载过程中转圈的效果
-    currentUserAuth: false,     // 
-    projectCode: "",//项目组
-    isTester: false,//1：是测试人员，0：非测试人员
+    //存储是否 处于加载中 这个数据，实现加载过程中转圈的效果
+    pageIsLoading: false,
+    currentUserAuth: false, 
+    //项目组
+    projectCode: "",
+    //1：是测试人员，0：非测试人员
+    isTester: false,
     isAdmin: false,
     isContact: false,
     subMenuInfo: {
@@ -21,10 +26,14 @@ let state = {
     },
     prePath: {
         pic: '/testplatform/img',
-        testCase: '/testplatform/TestCase',  // 测试用例
-        testInclusion: '/testplatform/TestInclusion',    // 测试包体
-        protocol: '/testplatform/protocol',  // 协议测试
-        log: '/testplatform/log',   // 日志
+        // 测试用例
+        testCase: '/testplatform/TestCase',
+        // 测试包体  
+        testInclusion: '/testplatform/TestInclusion',
+        // 协议测试    
+        protocol: '/testplatform/protocol',
+        // 日志  
+        log: '/testplatform/log',   
     },
     testTypeOption: [
         {
@@ -423,18 +432,20 @@ let state = {
         },
     },//报告中常用的事故等级说明及样式
     reportRouteList: {
+         //专家报告各路径
         "expert": {
             prefix: "/mtl_test_platform/page",
             testReport: "/compatibilityTestReport",
             questionDetail: "/questionDetail",
             deviceDetail: "/problemDeviceDetail",
-        },//专家报告各路径
+        },
+       //深度报告各路径
         "deep": {
             prefix: "/compatibilityTest/page",
             testReport: "/deepTestReport",
             questionDetail: "/questionDetail",
             deviceDetail: "/deviceDetail",
-        },//深度报告各路径
+        },
     },
     testTypeDict: {
         '兼容性测试-手游': '10',

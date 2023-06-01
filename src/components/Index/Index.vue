@@ -7,8 +7,7 @@
                         class="banner"
                         :src="item.imgUrl"
                         @click="jumpPage(item.url)" 
-                    >
-                    </el-image>
+                    />
                 </el-carousel-item>
             </el-carousel>
         </div>
@@ -38,33 +37,20 @@
                     {
                         url: 'http://mtl-index.leihuo.netease.com:30050/mtl_index/page/index',
                         imgUrl: require('@/assets/img/mtl_banner.jpg'),
-                        id:'1'
+                        id: '1',
                     }
                 ]
             }
         },
-        props:{
-            
-        },
-        created(){
-        },
-        mounted(){
-            
-        },
-        computed:{
-            
-        },
-        watch:{
-        },
         methods:{
             jumpPage(url){
-                window.location.href = url
+                window.location.href = url;
             }
         },
     }
 </script>
     
-<style  lang="less" scoped>
+<style lang="less" scoped>
     .banner-div {
         width: 100%;
         height: 642px;
@@ -80,9 +66,6 @@
         margin-top: 18px;
     }
     .copy-right-title{
-        font-weight: 700
+        font-weight: 700;
     }
-</style>
-
-<style>
 </style>

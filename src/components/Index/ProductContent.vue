@@ -10,7 +10,7 @@
                 @mouseenter="changeCurProductType(productItem.type)"
             >
                 <img :src="productItem.img">
-                <span>{{productItem.type}}</span>
+                <span>{{ productItem.type }}</span>
             </div>
         </div>
         <div class="product-item-container">
@@ -19,8 +19,8 @@
                 :key="listItem.name"
                 class="product-item-content"
             >
-                <div class="product-item-title">{{listItem.name}}</div>
-                <div class="product-item-des">{{listItem.detailDes}}</div>
+                <div class="product-item-title">{{ listItem.name }}</div>
+                <div class="product-item-des">{{ listItem.detailDes }}</div>
             </div>
         </div>
     </div>
@@ -28,8 +28,6 @@
 
 <script>
     export default {
-        components: {
-        },
         data() {
             return {
                 curProductType: ''

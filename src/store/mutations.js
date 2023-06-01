@@ -21,7 +21,6 @@ const mutations={
       state.preliminary_editType = data
   },
   setProblemFilter(state, data) {
-      // console.log('传入data',state,data);
       state.problemFilter = data
   },
   setService(state, data){
