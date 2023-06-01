@@ -20,7 +20,6 @@
 </template>
 
 <script>
-
     export default {
         components: {
         },
@@ -45,25 +44,11 @@
                     },
                 ],
             }
-        },
-        props:{
-            
-        },
-        created(){
-        },
-        mounted(){
-            
-        },
-        computed:{
-        },
-        watch:{
-        },
-        methods:{
-        },
+        }
     }
 </script>
     
-<style scoped>
+<style lang="less" scoped>
     .advantages-div {
         width: 100%;
         position: relative;
@@ -103,14 +88,16 @@
     .advantages-item-content {
         width: 560px;
         height: 130px;
-        background: url('../../assets/img/advantages.png') no-repeat;
+        background: url('~@/assets/img/advantages.png') no-repeat;
         background-position-x: 100%;
         background-position-y: 20px;
     }
-    .advantages-item-container:nth-child(odd) .advantages-item-content {
+    .advantages-item-container:nth-child(odd) 
+    .advantages-item-content {
         margin-right: 30px;
     }
-    .advantages-item-container:nth-child(even) .advantages-item-content {
+    .advantages-item-container:nth-child(even) 
+    .advantages-item-content {
         margin-left: 64px;
     }
     .advantages-item-title {
@@ -134,7 +121,4 @@
         color: #999999;
         font-size: 14px;
     }
-</style>
-
-<style>
 </style>

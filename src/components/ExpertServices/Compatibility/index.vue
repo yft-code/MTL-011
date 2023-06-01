@@ -3,12 +3,17 @@
         <div class="banner-div">
             <img :src="carouselData[0].imgUrl" style="height: 100%; width: 100%">
             <el-button class="application-btn" @click="jumpPage(carouselData[0].url)">前往申请</el-button>
-            <el-button class="record-btn" @click="jumpPage('/mtl_test_platform/page/expertServices/serviceOrdersList')">查看记录</el-button>
+            <el-button 
+                class="record-btn" 
+                @click="jumpPage('/mtl_test_platform/page/expertServices/serviceOrdersList')"
+            >
+                查看记录
+            </el-button>
         </div>
         <service-advantages />
-        <div class="copyright-div">
-            <div style="font-weight: 700">雷火测试中心</div>
-            <div style="margin-top: 18px;">网易公司版权所有 ©雷火测试中心 Copyright Leihuo. All Rights Reserved</div>
+        <div class="copy-right-div">
+            <div class="copy-right-title">雷火测试中心</div>
+            <div class="copy-right">网易公司版权所有 ©雷火测试中心 Copyright Leihuo. All Rights Reserved</div>
         </div>
     </div>
 </template>
@@ -50,7 +55,7 @@
     }
 </script>
     
-<style scoped>
+<style lang="less" scoped>
     .compatibility-index {
         margin-top: 64px;
     }
@@ -89,14 +94,17 @@
         line-height: 20px;
         background: #6177FF;
     }
-    .copyright-div {
+    .copy-right-div {
         width: 100%;
         margin: 40px 0;
         color: #999999;
         font-size: 14px;
         text-align: center;
     }
-</style>
-
-<style>
+     .copy-right{
+        margin-top: 18px;
+    }
+    .copy-right-title{
+        font-weight: 700
+    }
 </style>
